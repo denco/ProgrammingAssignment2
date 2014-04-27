@@ -1,11 +1,21 @@
 #!/usr/bin/R
 #
 # this script contain 2 functions to create a cache for inverted Matrix
+#
+# to use this functions, need to create a cacheMatrix, at first,
+# with the cacheSolve, cann you create an new inverted matrix or use 
+# cache of inverted matrix, if it exists.
 # 
+# Small example: 
+##  source("cachematrix.R") 
+##  cachedMatrix = makeCacheMatrix( matrix(rnorm(4), 2, 2) )
+##  cacheSolve(cachedMatrix)
 
 
 
-## This function make inverted cached Matrix
+## This function make cached inverted Matrix
+# input:  Matrix
+# output: cached inverted Matrix
 makeCacheMatrix <- function(x = matrix()) {
     ## set cache to null
     cached_matrix <- NULL
@@ -39,8 +49,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
 ### This function return cached inverted Matrix
+# input: cached matrix
+# output: cached inverted matrix or new created inverted matrix if cache is null
 cacheSolve <- function(x, ...) {
     ## Return a matrix that is the inverse of 'x'
     ## get cache
